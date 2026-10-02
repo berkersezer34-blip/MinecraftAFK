@@ -13,16 +13,6 @@ base {
 repositories {
 }
 
-loom {
-    splitEnvironmentSourceSets()
-
-    mods {
-        "minecraftafk" {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
-    }
-}
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -47,11 +37,4 @@ java {
     withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
-}
-tasks.named("jar", Jar) {
-    from sourceSets.client.output
-}
-
-tasks.named("sourcesJar", Jar) {
-    from sourceSets.client.allSource
 }
